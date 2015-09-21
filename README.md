@@ -28,12 +28,47 @@ brew install python
 pip install virtualenv
 ```
 
+
+
+
 ### MySQL
 
 #### Install mysql
 
 ```
     Mac: brew install mysql
+```
+
+alternate method for mac with macports
+```
+sudo port install mysql56, mysql56-server
+sudo port select mysql mysql56
+sudo -u _mysql mysql_install_db 
+sudo chown -R _mysql:_mysql /opt/local/var/db/mysql56/ 
+sudo chown -R _mysql:_mysql /opt/local/var/run/mysql56/ 
+sudo chown -R _mysql:_mysql /opt/local/var/log/mysql56/
+sudo port load mysql56-server
+ps -ax | grep mysql
+# Should return filepath to mysql56
+/opt/local/lib/mysql56/bin/mysqladmin -u root -p password 
+# Leave the password blank
+# Start the server
+mysql -u root -p
+# Exit the server
+exit;
+
+# This command will Stop the server
+# sudo port unload mysql56-server
+```
+https://trac.macports.org/wiki/howto/MySQL
+
+# Download the mysqld package for python 
+# MySQL-python-1.2.5
+https://pypi.python.org/pypi/MySQL-python/1.2.5
+http://mysql-python.sourceforge.net/MySQLdb.html
+
+```
+pip install MySQL-python-1.2.5.zip
 ```
 
 #### Prepare the database
@@ -43,6 +78,11 @@ mysql --user root
 mysql> create database calaccess_raw;
 mysql> \q
 python disclosure-backend/manage.py migrate
+```
+
+# if ^ returns an error, make sure that the data is sync'd properly
+```
+python disclosure-backend/manage.py syncdb
 ```
 
 
