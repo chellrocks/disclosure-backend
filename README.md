@@ -62,8 +62,8 @@ exit;
 ```
 https://trac.macports.org/wiki/howto/MySQL
 
-# Download the mysqld package for python 
-# MySQL-python-1.2.5
+#### Download the mysqld package for python 
+#### MySQL-python-1.2.5
 https://pypi.python.org/pypi/MySQL-python/1.2.5
 http://mysql-python.sourceforge.net/MySQLdb.html
 
@@ -80,7 +80,7 @@ mysql> \q
 python disclosure-backend/manage.py migrate
 ```
 
-# if ^ returns an error, make sure that the data is sync'd properly
+#### if ^ returns an error, make sure that the data is sync'd properly
 ```
 python disclosure-backend/manage.py syncdb
 ```
